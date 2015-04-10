@@ -19,5 +19,5 @@ A car game for AVR ATmega128.
   1. make hex
 
 ### Load to AVR
- Assuming you use the AVR-JTAG-USB-programmer. 
-  1. sudo avrdude -F -V -c jtag1 -p ATmega128 -U flash:w:main.hex
+ Assuming you use the AVR-JTAG-USB-programmer (and it is connected to /dev/ttyUSB0).
+  1. sudo avrdude -F -V -c jtag1 -p ATmega128 -U flash:w:main.hex -P /dev/ttyUSB0
