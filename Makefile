@@ -10,7 +10,7 @@ hex:
 	avr-objcopy -O ihex -R .eeprom main main.hex
 
 flash:
-	avrdude -F -V -c jtag1 -p ATmega128 -U flash:w:main.hex	
+	avrdude -F -V -c jtag1 -p ATmega128 -U flash:w:main.hex -P /dev/ttyUSB0
 
 clean:
 	rm *.o
