@@ -21,3 +21,6 @@ A car game for AVR ATmega128.
 ### Load to AVR
  Assuming you use the AVR-JTAG-USB-programmer (and it is connected to /dev/ttyUSB0).
   1. sudo avrdude -F -V -c jtag1 -p ATmega128 -U flash:w:main.hex -P /dev/ttyUSB0
+ 
+ Or with Makefile:
+  1. sudo make flash
