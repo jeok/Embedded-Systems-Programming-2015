@@ -4,16 +4,33 @@
 #include <stdlib.h>
 
 /* The Fast & Furious: AVR ATmega128 */
-/* Written by Janne Körkkö and Valtteri Talvensaari */
+/* Written by Janne Krkk and Valtteri Talvensaari */
 
+/* Global variables for buttons */
+volatile int button_0, button_1, button_2, button_3, button_4;
+
+/* Function prototypes */
+void handle_input();
+
+int main(void)
+{	
+	/* Initialize pins and ports */
+    init();
+
+    /* Declare variables */
+	/* Char road etc. */	
+	
+	return 0;
+}
+
+/* Function definitions */
 void init(void)
 {
     /* Disable interrupts */
     cli();
     /* Set speaker pins to output: */
     /* error: stray characters? */
-    /* DDRE |= (1 << PA4) | (1 << PA5); */
-
+    /* DDRE |= (1 << PA4) |(1 << PA5); */
     /* Reset pin PE4 */
     PORTE &= ~(1 << PE4);
     /* Set pin PE5 */
@@ -33,25 +50,37 @@ void init(void)
 
 }
 
-int main(void)
+
+void handle_input() 
 {
-    init();
+	/* Check if buttons are pressed and return corresponding integer(s) */	
+	/* Initialize buttons */
+	button_0 = 0;
+	button_1 = 0;
+	button_2 = 0;
+	button_3 = 0;
+	button_4 = 0;
 
-    /* Declare variables */
-    int car_pos_x = 0;
-    int car_pos_y = 0;
-    //char road[2][16];
-    char text[12] = {'F', 'a', 's', 't', 'n', 'F', 'u', 'r', 'i', 'o', 'u', 's'};
-    int i = 0; /* Loop variable */
-
-    while(1) {
-	/* Loop in main menu, break on user input */
-	while (1) {
-            for (; i < 12; i++) {
-                lcd_write_data(text[i]);
-            }
-        }
-    }
-
-    return 0;
+	if (!(PINA & (1 << PA0))) {
+		button_0 = 1;  
+	} else if (!(PINA & (1 << PA1))) { 
+		button_1 = 1; 
+	} else if (!(PINA & (1 << PA2))) {
+		button_2 = 1; 
+	} else if (!(PINA & (1 << PA3))) {
+		button_3 = 1; 
+	} else if (!(PINA & (1 << PA4))) {
+		button_4 = 1;
+	}
 }
+
+void main_menu()
+{	
+	/* Print text in main menu */
+	int i = 0; /* Loop variable */
+	char menu_text[] = "Fast & Furious";
+	for (; i >= sizeof(menu_text); i++) {
+		lcd_write_data(menu_text[i]);
+	}
+}
+
