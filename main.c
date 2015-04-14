@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 /* The Fast & Furious: AVR ATmega128 */
-/* Written by Janne Krkk and Valtteri Talvensaari */
+/* Written by Janne Körkkö and Valtteri Talvensaari */
 
 /* Global variables for buttons */
 volatile int button_0, button_1, button_2, button_3, button_4;
