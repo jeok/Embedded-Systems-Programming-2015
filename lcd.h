@@ -8,7 +8,8 @@
 #define LCD_MODE      0x04  /* entry mode set */
 #define LCD_OFF       0x08  /* display off */
 #define LCD_ON        0x0C  /* display on */
-#define LCD_SHIFT     0x10  /* cursor or display shift */
+#define LCD_SHIFT_L   0x10  /* shift cursor left */
+#define LCD_SHIFT_R   0x14  /* shift cursor right */
 #define LCD_FUNCTION  0x20  /* function set */
 #define LCD_CGRAM     0x40  /* set CGRAM address */
 #define LCD_DDRAM     0x80  /* set DDRAM address */
