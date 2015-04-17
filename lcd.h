@@ -26,3 +26,4 @@ int lcd_read(int);
 #define lcd_read_data() lcd_read(1)
 
 #endif
+
